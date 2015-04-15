@@ -1,0 +1,3 @@
+2) No there were no build errors.
+3) Yes they all pass
+4) 
