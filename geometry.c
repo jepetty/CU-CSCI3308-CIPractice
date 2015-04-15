@@ -19,6 +19,26 @@
 
 #define DEBUG(file, line, func, msg) fprintf(stderr, "DEBUG - %s_%d_%s: %s", file, line, func, msg);
 
+double coord_2d_area_triangle(const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t* c){
+	
+	// Input checks
+	if(!a){
+		DEBUG(__FILE__, __LINE__, __func__, "'a' must not be NULL");
+		return NAN;
+	}
+	if(!b){
+		DEBUG(__FILE__, __LINE__, __func__, "'b' must not be NULL");
+		return NAN;
+	}
+	
+	double area = a->x*(b->y - c->y) + b->x*(c->y - a->y) + c->x*(a->y - b->y);
+	area = area/2;
+	if (area < 0){
+		area = area*(-1);
+	}
+	return area;
+}
+
 double coord_2d_dist(const coord_2d_t* a, const coord_2d_t* b){
 
     /* Input Checks */
